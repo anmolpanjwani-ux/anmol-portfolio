@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef, useState } from "react"
 import { projects, type Project } from "@/lib/projects"
+import { site } from "@/lib/site"
 import { ProjectModal } from "./project-modal"
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
@@ -147,14 +148,13 @@ export function ProjectsSection() {
             className="mb-16 md:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8"
           >
             <div>
-              <p className="text-bronze text-sm tracking-[0.3em] uppercase mb-4">Portfolio</p>
+              <p className="text-bronze text-sm tracking-[0.3em] uppercase mb-4">{site.projectsHeader.label}</p>
               <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl text-cream">
-                Selected Works
+                {site.projectsHeader.heading}
               </h2>
             </div>
             <p className="text-warm-beige/60 max-w-md leading-relaxed">
-              A curated collection of residential and commercial interior design projects, 
-              each crafted with attention to detail and a commitment to timeless aesthetics.
+              {site.projectsHeader.description}
             </p>
           </motion.div>
 

@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef } from "react"
 import { HeroScene } from "./hero-scene"
+import { site } from "@/lib/site"
 
 export function HeroSection() {
   const containerRef = useRef<HTMLElement>(null)
@@ -57,7 +58,7 @@ export function HeroSection() {
             animate="visible"
             className="text-bronze text-sm md:text-base tracking-[0.4em] uppercase mb-6"
           >
-            Interior Designer
+            {site.hero.subtitle}
           </motion.p>
 
           {/* Main Title */}
@@ -69,7 +70,7 @@ export function HeroSection() {
               animate="visible"
               className="font-serif text-5xl md:text-7xl lg:text-8xl text-cream leading-[1.1] tracking-tight"
             >
-              Designing Spaces
+              {site.hero.titleLine1}
             </motion.h1>
           </div>
           <div className="overflow-hidden mb-8">
@@ -80,7 +81,7 @@ export function HeroSection() {
               animate="visible"
               className="font-serif text-5xl md:text-7xl lg:text-8xl text-cream leading-[1.1] tracking-tight"
             >
-              That Feel <span className="text-bronze italic">Timeless</span>
+              {site.hero.titleLine2Prefix}<span className="text-bronze italic">{site.hero.titleLine2Highlight}</span>
             </motion.h1>
           </div>
 
@@ -92,7 +93,7 @@ export function HeroSection() {
             animate="visible"
             className="text-warm-beige/60 text-base md:text-lg max-w-xl mx-auto mb-12 leading-relaxed"
           >
-            Spatial Storyteller | Luxury Interiors | Modern Organic Design
+            {site.hero.description}
           </motion.p>
 
           {/* CTA Buttons */}
@@ -104,16 +105,16 @@ export function HeroSection() {
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <a
-              href="#projects"
+              href={site.hero.ctaPrimaryHref}
               className="group relative px-8 py-4 bg-bronze text-charcoal font-medium tracking-wider uppercase text-sm overflow-hidden transition-all duration-500 hover:bg-cream"
             >
-              <span className="relative z-10">View Projects</span>
+              <span className="relative z-10">{site.hero.ctaPrimaryLabel}</span>
             </a>
             <a
-              href="#contact"
+              href={site.hero.ctaSecondaryHref}
               className="group relative px-8 py-4 border border-warm-beige/30 text-cream font-medium tracking-wider uppercase text-sm overflow-hidden transition-all duration-500 hover:border-bronze hover:text-bronze"
             >
-              <span className="relative z-10">Contact</span>
+              <span className="relative z-10">{site.hero.ctaSecondaryLabel}</span>
             </a>
           </motion.div>
         </div>
@@ -142,7 +143,7 @@ export function HeroSection() {
         transition={{ duration: 0.6, delay: 2.2 }}
       >
         <p className="text-warm-beige/30 text-xs tracking-[0.3em] uppercase -rotate-90 origin-center whitespace-nowrap">
-          Raipur, India
+          {site.hero.sideTextLeft}
         </p>
       </motion.div>
 
@@ -153,7 +154,7 @@ export function HeroSection() {
         transition={{ duration: 0.6, delay: 2.2 }}
       >
         <p className="text-warm-beige/30 text-xs tracking-[0.3em] uppercase rotate-90 origin-center whitespace-nowrap">
-          Est. 2022
+          {site.hero.sideTextRight}
         </p>
       </motion.div>
     </section>

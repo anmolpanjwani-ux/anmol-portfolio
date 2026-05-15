@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
+import { site } from "@/lib/site"
 
 export function LoadingScreen({ onComplete }: { onComplete: () => void }) {
   const [progress, setProgress] = useState(0)
@@ -45,7 +46,7 @@ export function LoadingScreen({ onComplete }: { onComplete: () => void }) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              AP
+              {site.loading.monogram}
             </motion.h1>
             <motion.p 
               className="text-warm-beige/60 text-sm tracking-[0.3em] uppercase mb-8"
@@ -53,7 +54,7 @@ export function LoadingScreen({ onComplete }: { onComplete: () => void }) {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.5 }}
             >
-              Interior Design
+              {site.loading.subtitle}
             </motion.p>
           </motion.div>
 

@@ -2,20 +2,10 @@
 
 import { motion, useScroll, useTransform, useInView } from "framer-motion"
 import { useRef } from "react"
+import { site } from "@/lib/site"
 
-const stats = [
-  { value: "4+", label: "Years Experience" },
-  { value: "25+", label: "Projects Completed" },
-  { value: "3", label: "Cities Worked" },
-]
-
-const skills = [
-  "AutoCAD (2D)",
-  "SketchUp",
-  "Lumion",
-  "Adobe Photoshop",
-  "Adobe InDesign",
-]
+const { stats, skills } = site.about
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ""
 
 export function AboutSection() {
   const containerRef = useRef<HTMLElement>(null)
@@ -48,9 +38,9 @@ export function AboutSection() {
           transition={{ duration: 0.8 }}
           className="mb-16 md:mb-24"
         >
-          <p className="text-bronze text-sm tracking-[0.3em] uppercase mb-4">About</p>
+          <p className="text-bronze text-sm tracking-[0.3em] uppercase mb-4">{site.about.label}</p>
           <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl text-cream">
-            The Designer
+            {site.about.heading}
           </h2>
         </motion.div>
 
@@ -68,10 +58,19 @@ export function AboutSection() {
               transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
               style={{ transformOrigin: "top" }}
             />
-            <div className="w-full h-full bg-gradient-to-br from-stone/20 to-dark-brown flex items-center justify-center">
-              <div className="text-center">
-                <span className="font-serif text-8xl md:text-9xl text-bronze/20">AP</span>
-              </div>
+            <div className="w-full h-full bg-gradient-to-br from-stone/20 to-dark-brown flex items-center justify-center overflow-hidden">
+              {site.about.photo ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={`${basePath}${site.about.photo}`}
+                  alt={site.about.name}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              ) : (
+                <div className="text-center">
+                  <span className="font-serif text-8xl md:text-9xl text-bronze/20">{site.about.monogram}</span>
+                </div>
+              )}
             </div>
             
             {/* Floating Badge */}
@@ -82,8 +81,8 @@ export function AboutSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.8 }}
             >
-              <p className="text-cream font-serif text-lg">Modern Organic</p>
-              <p className="text-warm-beige/60 text-sm">Design Philosophy</p>
+              <p className="text-cream font-serif text-lg">{site.about.philosophyBadgeTitle}</p>
+              <p className="text-warm-beige/60 text-sm">{site.about.philosophyBadgeSubtitle}</p>
             </motion.div>
           </motion.div>
 
@@ -95,29 +94,20 @@ export function AboutSection() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="font-serif text-3xl md:text-4xl text-cream mb-6 leading-relaxed"
             >
-              Anmol Panjwani
+              {site.about.name}
             </motion.h3>
 
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-warm-beige/70 text-lg leading-relaxed mb-6"
-            >
-              Creative and detail-oriented Interior Designer with experience in residential 
-              and commercial projects. Passionate about creating spaces that feel timeless, 
-              meaningful, and visually balanced.
-            </motion.p>
-
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-warm-beige/70 text-lg leading-relaxed mb-10"
-            >
-              I believe good design is not only about aesthetics but also about how a space 
-              makes people feel and experience their everyday life.
-            </motion.p>
+            {site.about.bio.map((para, idx) => (
+              <motion.p
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.8, delay: 0.3 + idx * 0.1 }}
+                className={`text-warm-beige/70 text-lg leading-relaxed ${idx === site.about.bio.length - 1 ? "mb-10" : "mb-6"}`}
+              >
+                {para}
+              </motion.p>
+            ))}
 
             {/* Skills */}
             <motion.div
@@ -126,7 +116,7 @@ export function AboutSection() {
               transition={{ duration: 0.8, delay: 0.5 }}
               className="mb-12"
             >
-              <p className="text-bronze text-sm tracking-[0.2em] uppercase mb-4">Expertise</p>
+              <p className="text-bronze text-sm tracking-[0.2em] uppercase mb-4">{site.about.expertiseLabel}</p>
               <div className="flex flex-wrap gap-3">
                 {skills.map((skill, index) => (
                   <motion.span
@@ -176,11 +166,9 @@ export function AboutSection() {
           transition={{ duration: 0.8 }}
           className="mt-24 md:mt-32 text-center max-w-3xl mx-auto"
         >
-          <p className="text-bronze text-sm tracking-[0.3em] uppercase mb-6">Philosophy</p>
+          <p className="text-bronze text-sm tracking-[0.3em] uppercase mb-6">{site.about.philosophyLabel}</p>
           <blockquote className="font-serif text-2xl md:text-3xl lg:text-4xl text-cream leading-relaxed italic">
-            {`"Pulling inspiration from Minimalism, Mid-Century Modern, and Boho design 
-            styles — creating raw and refined spaces that subtly layer organic elements, 
-            forms, and hues against a backdrop of sophisticated simplicity."`}
+            {`"${site.about.philosophyQuote}"`}
           </blockquote>
         </motion.div>
       </div>

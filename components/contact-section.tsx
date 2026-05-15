@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion"
 import { useRef, useState } from "react"
+import { site } from "@/lib/site"
 
 export function ContactSection() {
   const containerRef = useRef<HTMLElement>(null)
@@ -25,7 +26,7 @@ export function ContactSection() {
       `Name: ${formState.name}\nEmail: ${formState.email}\n\n${formState.message}`
     )
     if (typeof window !== "undefined") {
-      window.location.href = `mailto:anmolpanjwani1635@gmail.com?subject=${subject}&body=${body}`
+      window.location.href = `mailto:${site.contact.email}?subject=${subject}&body=${body}`
     }
     setTimeout(() => setIsSubmitting(false), 800)
   }
@@ -48,12 +49,12 @@ export function ContactSection() {
           transition={{ duration: 0.8 }}
           className="mb-16 md:mb-24 text-center"
         >
-          <p className="text-bronze text-sm tracking-[0.3em] uppercase mb-4">Contact</p>
+          <p className="text-bronze text-sm tracking-[0.3em] uppercase mb-4">{site.contact.label}</p>
           <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl text-cream mb-6">
-            {`Let's Create Together`}
+            {site.contact.heading}
           </h2>
           <p className="text-warm-beige/60 max-w-xl mx-auto leading-relaxed">
-            {`Let's create spaces that tell stories. Reach out to discuss your next project.`}
+            {site.contact.description}
           </p>
         </motion.div>
 
@@ -67,51 +68,53 @@ export function ContactSection() {
             <div className="space-y-12">
               <div>
                 <p className="text-bronze text-sm tracking-[0.2em] uppercase mb-4">
-                  Email
+                  {site.contact.emailLabel}
                 </p>
                 <a
-                  href="mailto:anmolpanjwani1635@gmail.com"
+                  href={`mailto:${site.contact.email}`}
                   className="font-serif text-2xl md:text-3xl text-cream hover:text-bronze transition-colors"
                 >
-                  anmolpanjwani1635@gmail.com
+                  {site.contact.email}
                 </a>
               </div>
 
               <div>
                 <p className="text-bronze text-sm tracking-[0.2em] uppercase mb-4">
-                  Phone
+                  {site.contact.phoneLabel}
                 </p>
                 <a
-                  href="tel:+917067237510"
+                  href={`tel:${site.contact.phone.replace(/[^+\d]/g, "")}`}
                   className="font-serif text-2xl md:text-3xl text-cream hover:text-bronze transition-colors"
                 >
-                  +91 7067237510
+                  {site.contact.phone}
                 </a>
               </div>
 
               <div>
                 <p className="text-bronze text-sm tracking-[0.2em] uppercase mb-4">
-                  Location
+                  {site.contact.locationLabel}
                 </p>
                 <p className="font-serif text-2xl md:text-3xl text-cream">
-                  Raipur, Chhattisgarh
+                  {site.contact.locationLine1}
                 </p>
-                <p className="text-warm-beige/50 mt-2">India</p>
+                <p className="text-warm-beige/50 mt-2">{site.contact.locationLine2}</p>
               </div>
 
               {/* Social Links */}
               <div className="pt-8 border-t border-stone/20">
                 <p className="text-bronze text-sm tracking-[0.2em] uppercase mb-6">
-                  Connect
+                  {site.contact.connectLabel}
                 </p>
                 <div className="flex gap-6">
-                  {["LinkedIn", "Instagram", "Behance"].map((social) => (
+                  {site.contact.socials.map((social) => (
                     <a
-                      key={social}
-                      href="#"
+                      key={social.label}
+                      href={social.href}
+                      target="_blank"
+                      rel="noreferrer"
                       className="text-warm-beige/60 hover:text-bronze text-sm tracking-wider transition-colors"
                     >
-                      {social}
+                      {social.label}
                     </a>
                   ))}
                 </div>
@@ -140,7 +143,7 @@ export function ContactSection() {
                   htmlFor="name"
                   className="absolute left-0 -top-4 text-warm-beige/50 text-sm tracking-wider transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-4 peer-focus:-top-4 peer-focus:text-sm peer-focus:text-bronze"
                 >
-                  Your Name
+                  {site.contact.formNameLabel}
                 </label>
               </div>
 
@@ -158,7 +161,7 @@ export function ContactSection() {
                   htmlFor="email"
                   className="absolute left-0 -top-4 text-warm-beige/50 text-sm tracking-wider transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-4 peer-focus:-top-4 peer-focus:text-sm peer-focus:text-bronze"
                 >
-                  Your Email
+                  {site.contact.formEmailLabel}
                 </label>
               </div>
 
@@ -176,7 +179,7 @@ export function ContactSection() {
                   htmlFor="message"
                   className="absolute left-0 -top-4 text-warm-beige/50 text-sm tracking-wider transition-all peer-placeholder-shown:text-base peer-placeholder-shown:top-4 peer-focus:-top-4 peer-focus:text-sm peer-focus:text-bronze"
                 >
-                  Tell me about your project
+                  {site.contact.formMessageLabel}
                 </label>
               </div>
 
@@ -186,7 +189,7 @@ export function ContactSection() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <span className="relative z-10">{isSubmitting ? "Opening Mail\u2026" : "Send Message"}</span>
+                <span className="relative z-10">{isSubmitting ? "Opening Mail\u2026" : site.contact.submitLabel}</span>
               </motion.button>
             </form>
           </motion.div>

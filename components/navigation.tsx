@@ -3,13 +3,9 @@
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { useState } from "react"
+import { site } from "@/lib/site"
 
-const navItems = [
-  { name: "Home", href: "#hero" },
-  { name: "Projects", href: "#projects" },
-  { name: "About", href: "#about" },
-  { name: "Contact", href: "#contact" },
-]
+const navItems = site.navigation.items
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -28,7 +24,7 @@ export function Navigation() {
               className="font-serif text-2xl text-cream tracking-wider"
               whileHover={{ scale: 1.05 }}
             >
-              Anmol Panjwani
+              {site.navigation.brand}
             </motion.span>
           </Link>
 

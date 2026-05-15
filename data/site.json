@@ -1,0 +1,88 @@
+{
+  "loading": {
+    "monogram": "AP",
+    "subtitle": "Interior Design"
+  },
+  "hero": {
+    "subtitle": "Interior Designer",
+    "titleLine1": "Designing Spaces",
+    "titleLine2Prefix": "That Feel ",
+    "titleLine2Highlight": "Timeless",
+    "description": "Spatial Storyteller | Luxury Interiors | Modern Organic Design",
+    "ctaPrimaryLabel": "View Projects",
+    "ctaPrimaryHref": "#projects",
+    "ctaSecondaryLabel": "Contact",
+    "ctaSecondaryHref": "#contact",
+    "sideTextLeft": "Raipur, India",
+    "sideTextRight": "Est. 2022"
+  },
+  "navigation": {
+    "brand": "Anmol Panjwani",
+    "items": [
+      { "name": "Home", "href": "#hero" },
+      { "name": "Projects", "href": "#projects" },
+      { "name": "About", "href": "#about" },
+      { "name": "Contact", "href": "#contact" }
+    ]
+  },
+  "about": {
+    "label": "About",
+    "heading": "The Designer",
+    "name": "Anmol Panjwani",
+    "bio": [
+      "Creative and detail-oriented Interior Designer with experience in residential and commercial projects. Passionate about creating spaces that feel timeless, meaningful, and visually balanced.",
+      "I believe good design is not only about aesthetics but also about how a space makes people feel and experience their everyday life."
+    ],
+    "philosophyBadgeTitle": "Modern Organic",
+    "philosophyBadgeSubtitle": "Design Philosophy",
+    "expertiseLabel": "Expertise",
+    "skills": [
+      "AutoCAD (2D)",
+      "SketchUp",
+      "Lumion",
+      "Adobe Photoshop",
+      "Adobe InDesign"
+    ],
+    "stats": [
+      { "value": "4+", "label": "Years Experience" },
+      { "value": "25+", "label": "Projects Completed" },
+      { "value": "3", "label": "Cities Worked" }
+    ],
+    "philosophyLabel": "Philosophy",
+    "philosophyQuote": "Pulling inspiration from Minimalism, Mid-Century Modern, and Boho design styles — creating raw and refined spaces that subtly layer organic elements, forms, and hues against a backdrop of sophisticated simplicity.",
+    "photo": "",
+    "monogram": "AP"
+  },
+  "projectsHeader": {
+    "label": "Portfolio",
+    "heading": "Selected Works",
+    "description": "A curated collection of residential and commercial interior design projects, each crafted with attention to detail and a commitment to timeless aesthetics."
+  },
+  "contact": {
+    "label": "Contact",
+    "heading": "Let's Create Together",
+    "description": "Let's create spaces that tell stories. Reach out to discuss your next project.",
+    "emailLabel": "Email",
+    "email": "anmolpanjwani1635@gmail.com",
+    "phoneLabel": "Phone",
+    "phone": "+91 7067237510",
+    "locationLabel": "Location",
+    "locationLine1": "Raipur, Chhattisgarh",
+    "locationLine2": "India",
+    "connectLabel": "Connect",
+    "socials": [
+      { "label": "LinkedIn", "href": "https://www.linkedin.com/" },
+      { "label": "Instagram", "href": "https://www.instagram.com/" },
+      { "label": "Behance", "href": "https://www.behance.net/" }
+    ],
+    "formNameLabel": "Your Name",
+    "formEmailLabel": "Your Email",
+    "formMessageLabel": "Tell me about your project",
+    "submitLabel": "Send Message"
+  },
+  "footer": {
+    "brand": "Anmol Panjwani",
+    "rightsText": "All Rights Reserved",
+    "backToTopLabel": "Back to Top"
+  }
+}

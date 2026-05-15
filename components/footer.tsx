@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { site } from "@/lib/site"
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -17,7 +18,7 @@ export function Footer() {
             transition={{ duration: 0.6 }}
           >
             <span className="font-serif text-2xl text-cream tracking-wider">
-              Anmol Panjwani
+              {site.footer.brand}
             </span>
           </motion.div>
 
@@ -29,7 +30,7 @@ export function Footer() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-warm-beige/40 text-sm tracking-wider"
           >
-            {currentYear} All Rights Reserved
+            {currentYear} {site.footer.rightsText}
           </motion.p>
 
           {/* Back to Top */}
@@ -41,7 +42,7 @@ export function Footer() {
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="text-warm-beige/60 text-sm tracking-wider hover:text-bronze transition-colors flex items-center gap-2"
           >
-            Back to Top
+            {site.footer.backToTopLabel}
             <svg
               className="w-4 h-4 -rotate-90"
               fill="none"
