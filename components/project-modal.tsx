@@ -80,10 +80,19 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             {/* Scrollable Content */}
             <div className="overflow-y-auto max-h-[90vh]">
               {/* Hero Image */}
-              <div className="relative aspect-video bg-gradient-to-br from-stone/20 to-dark-brown flex items-center justify-center">
-                <span className="font-serif text-9xl text-bronze/10">
-                  {project.title.charAt(0)}
-                </span>
+              <div className="relative aspect-video bg-gradient-to-br from-stone/20 to-dark-brown flex items-center justify-center overflow-hidden">
+                {project.images && project.images[0] ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}${project.images[0]}`}
+                    alt={project.title}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                ) : (
+                  <span className="font-serif text-9xl text-bronze/10">
+                    {project.title.charAt(0)}
+                  </span>
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-dark-brown to-transparent" />
               </div>
 
@@ -195,14 +204,27 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                     Gallery
                   </h3>
                   <div className="grid md:grid-cols-2 gap-4">
-                    {[1, 2, 3, 4].map((i) => (
+                    {(project.images && project.images.length > 0
+                      ? project.images
+                      : [null, null, null, null]
+                    ).map((imgPath, i) => (
                       <div
                         key={i}
-                        className="aspect-[4/3] bg-gradient-to-br from-stone/10 to-dark-brown flex items-center justify-center"
+                        className="aspect-[4/3] bg-gradient-to-br from-stone/10 to-dark-brown flex items-center justify-center overflow-hidden relative"
                       >
-                        <span className="text-bronze/20 font-serif text-4xl">
-                          {i}
-                        </span>
+                        {imgPath ? (
+                          // eslint-disable-next-line @next/next/no-img-element
+                          <img
+                            src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}${imgPath}`}
+                            alt={`${project.title} ${i + 1}`}
+                            className="absolute inset-0 w-full h-full object-cover"
+                            loading="lazy"
+                          />
+                        ) : (
+                          <span className="text-bronze/20 font-serif text-4xl">
+                            {i + 1}
+                          </span>
+                        )}
                       </div>
                     ))}
                   </div>

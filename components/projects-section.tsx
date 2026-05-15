@@ -42,7 +42,17 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             animate={{ scale: isHovered ? 1.1 : 1 }}
             transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            <span className="font-serif text-6xl md:text-8xl text-bronze/10">{String(index + 1).padStart(2, "0")}</span>
+            {project.images && project.images[0] ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}${project.images[0]}`}
+                alt={project.title}
+                className="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
+              />
+            ) : (
+              <span className="font-serif text-6xl md:text-8xl text-bronze/10">{String(index + 1).padStart(2, "0")}</span>
+            )}
           </motion.div>
 
           {/* Overlay */}
