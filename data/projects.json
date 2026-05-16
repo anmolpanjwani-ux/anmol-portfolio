@@ -44,9 +44,7 @@
       "Peaceful",
       "Healing"
     ],
-    "images": [
-      "/projects/maggies-center/img-1778923457578-6976.jpg"
-    ],
+    "images": [],
     "featured": true
   },
   {
@@ -63,7 +61,16 @@
       "Industrial",
       "Inviting"
     ],
-    "images": [],
+    "images": [
+      "/projects/cafe-project/img-1778924789421-3663.jpg",
+      "/projects/cafe-project/img-1778924830818-7222.jpg",
+      "/projects/cafe-project/img-1778924830827-617.jpg",
+      "/projects/cafe-project/img-1778924830833-4222.jpg",
+      "/projects/cafe-project/img-1778924844102-7362.jpg",
+      "/projects/cafe-project/img-1778924844110-187.jpg",
+      "/projects/cafe-project/img-1778924844117-7727.jpg",
+      "/projects/cafe-project/img-1778924848632-6899.jpg"
+    ],
     "featured": true
   },
   {
